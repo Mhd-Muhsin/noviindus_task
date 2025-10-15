@@ -1,116 +1,44 @@
 import 'package:flutter/material.dart';
-// import 'package:noviindus_task/add_feeds_screen.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import 'add_feeds_screen.dart';
-import 'my_feeds_screen.dart';
-
-// import 'my_feeds_screen.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class MyFeedsScreen extends StatelessWidget {
+  const MyFeedsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 12),
-            const _TopBar(),
-            const SizedBox(height: 32),
-            const _ChipsRow(),
-            const SizedBox(height: 22),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).maybePop(),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white24),
+                      ),
+                      child: const Icon(Icons.arrow_back, size: 20),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  const Expanded(
+                    child: Text('My Feed', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 18),
             const Expanded(child: _FeedList()),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddFeedScreen()));
-        },
-        backgroundColor: const Color(0xFFC70000),
-        shape: CircleBorder(),
-        child: const Icon(Icons.add, size: 28),
-      ),
-    );
-  }
-}
-
-class _TopBar extends StatelessWidget {
-  const _TopBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Hello Maria', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                SizedBox(height: 6),
-                Text('Welcome back to Section', style: TextStyle(fontSize: 12, color: Colors.white70)),
-              ],
-            ),
-          ),
-          CircleAvatar(
-            radius: 20,
-            child: IconButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyFeedsScreen()));
-            },
-                icon: const Icon(Icons.person)),
-            // backgroundImage: AssetImage('assets/profile_avatar.png'),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class _ChipsRow extends StatelessWidget {
-  const _ChipsRow({super.key});
-
-  Widget _chip(String label, {bool selected = false}) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      margin: const EdgeInsets.only(right: 8),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white24),
-      ),
-      child: Text(label, style: const TextStyle(fontSize:12)),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 44,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        scrollDirection: Axis.horizontal,
-        children: [
-          _chip('ARTIFICIAL  INTELLIGENCE', selected: true),
-          _chip('LINGUISTICS'),
-          _chip('SOCIAL STUDIES'),
-          _chip('PHYSICS'),
-          _chip('ECONOMICS'),
-          _chip('LITERATURE'),
-          _chip('PHYSICAL EDUCATION'),
-          _chip('SOCIOLOGY'),
-          _chip('BIOLOGY'),
-          _chip('IT'),
-          _chip('HUMANITIES'),
-          _chip('CHEMISTRY'),
-          _chip('GEOGRAPHY'),
-          _chip('BUSINESS'),
-        ],
-      ),
+      )
     );
   }
 }
@@ -126,27 +54,27 @@ class _FeedList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 18),
           child: _FeedCard(
-            authorName: 'Frijo',
-            timeAgo: timeago.format(DateTime.parse("2024-06-12T10:48:48.494052Z")),
+            authorName: 'No Name',
+            timeAgo: timeago.format(DateTime.parse("2025-10-15T05:07:12.714088Z")),
             imageProvider: const NetworkImage('https://i.ibb.co/wrzL7vr/Screenshot-2024-11-04-at-2-43-45-PM.png'),
             description:
-            'POLITICAL SOCIOLOGY',
+            'teat one',
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 18),
           child: _FeedCard(
-            authorName: 'Frijo',
-            timeAgo: timeago.format(DateTime.parse("2024-06-12T10:46:15.817244Z")),
+            authorName: 'No Name',
+            timeAgo: timeago.format(DateTime.parse("2025-10-15T04:05:59.355942Z")),
             imageProvider: const NetworkImage('https://i.ibb.co/wrzL7vr/Screenshot-2024-11-04-at-2-43-45-PM.png'),
             description:
-            "GENDER AND SOCIETY",
+            "test",
           ),
         ),Padding(
           padding: const EdgeInsets.only(bottom: 18),
           child: _FeedCard(
             authorName: 'Frijo',
-            timeAgo: '5 days ago',
+            timeAgo: timeago.format(DateTime.parse("2025-10-15T04:00:14.686657Z")),
             imageProvider: const NetworkImage('https://i.ibb.co/wrzL7vr/Screenshot-2024-11-04-at-2-43-45-PM.png'),
             description:
             "LITERATURE\r\nBUSINESS\r\nDEVELOPMENT ASSOCIATE",

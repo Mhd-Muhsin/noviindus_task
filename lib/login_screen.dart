@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 
+import 'home_screen.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -76,7 +78,7 @@ class LoginScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: (){
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 child: Container(
                   decoration: BoxDecoration(
