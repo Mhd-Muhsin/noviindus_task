@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:noviindus_task/add_feeds_screen.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import 'add_feeds_screen.dart';
-import 'my_feeds_screen.dart';
-
-// import 'my_feeds_screen.dart';
+import '../../../feeds/add_feed/presentation/pages/add_feeds_screen.dart';
+import '../../../feeds/my_feeds/presentation/pages/my_feeds_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

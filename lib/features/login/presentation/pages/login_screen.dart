@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 
-import 'home_screen.dart';
+import '../../../home/presentation/pages/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  TextEditingController loginController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,9 @@ class LoginScreen extends StatelessWidget {
                           // comparator: (a, b) => b.name.compareTo(a.name),
                         ),
                         Expanded(
-                          child: TextField(style: TextStyle(color: Colors.white),
+                          child: TextField(
+                            controller: loginController,
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Color(0xFF171717),
@@ -78,7 +82,8 @@ class LoginScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
+
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 child: Container(
                   decoration: BoxDecoration(

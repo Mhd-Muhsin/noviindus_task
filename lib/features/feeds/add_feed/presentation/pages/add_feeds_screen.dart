@@ -86,7 +86,6 @@ class _AddFeedForm extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       children: [
-        // Video picker dashed area
         _dashedBox(
           height: 180,
           child: Column(
@@ -100,7 +99,6 @@ class _AddFeedForm extends StatelessWidget {
         ),
         const SizedBox(height: 18),
 
-        // Thumbnail picker dashed area
         _dashedBox(
           height: 120,
           child: Row(
@@ -115,7 +113,6 @@ class _AddFeedForm extends StatelessWidget {
 
         const SizedBox(height: 18),
 
-        // Description
         const Text('Add Description', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
         const SizedBox(height: 8),
         TextField(
@@ -136,8 +133,6 @@ class _AddFeedForm extends StatelessWidget {
         ),
 
         const SizedBox(height: 18),
-
-        // Categories
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
